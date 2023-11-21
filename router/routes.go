@@ -8,6 +8,7 @@ import (
 func initializeRouter(router *gin.Engine) {
 	v1 := router.Group("/v1")
 	v1.GET("/video", controllers.SearchVideo)
-	v1.POST("/video", controllers.CreateVideos)
+	v1.GET("/videos", controllers.SearchVideoById)
+	v1.POST("/video", controllers.CreateVideo)
 	v1.PUT("/video", controllers.UpdateVideo)
 }

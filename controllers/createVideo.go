@@ -9,7 +9,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func CreateVideos(ctx *gin.Context) {
+func CreateVideo(ctx *gin.Context) {
 	var input models.Video
 
 	if err := ctx.BindJSON(&input); err != nil {
