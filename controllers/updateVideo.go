@@ -20,5 +20,4 @@ func UpdateVideo(ctx *gin.Context) {
 	inits.DB.Model(&video).Updates(models.Video{Title: models.VideoModel.Title, Description: models.VideoModel.Description, Url: models.VideoModel.Url})
 
 	ctx.JSON(200, gin.H{"data": video})
-
 }
