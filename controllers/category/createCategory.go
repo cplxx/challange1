@@ -1,4 +1,4 @@
-package controllers
+package category
 
 import (
 	"net/http"
@@ -9,14 +9,13 @@ import (
 )
 
 func CreateCategory(ctx *gin.Context) {
-	var category models.Category
 
-	if err := ctx.BindJSON(&category); err != nil {
+	if err := ctx.BindJSON(models.Category{}); err != nil {
 		ctx.JSON(http.StatusBadRequest, gin.H{"Error": err.Error()})
 		return
 	}
 
-	result := inits.DB.Create(&category)
+	result := inits.DB.Create(models.Category{})
 	if result.Error != nil {
 		ctx.JSON(http.StatusInternalServerError, gin.H{"Error": result.Error.Error()})
 		return

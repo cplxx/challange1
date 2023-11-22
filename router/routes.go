@@ -1,19 +1,20 @@
 package router
 
 import (
-	"github.com/cplxx/AluraChallenge/controllers"
+	"github.com/cplxx/AluraChallenge/controllers/category"
+	"github.com/cplxx/AluraChallenge/controllers/video"
 	"github.com/gin-gonic/gin"
 )
 
 func initializeRouter(router *gin.Engine) {
 	vd := router.Group("/vd")
-	vd.GET("/video", controllers.SearchVideo)
-	vd.GET("/videos", controllers.SearchVideoById)
-	vd.POST("/video", controllers.CreateVideo)
-	vd.PUT("/video", controllers.UpdateVideo)
-	vd.DELETE("/video", controllers.DeleteVideo)
+	vd.GET("/video", video.SearchVideo)
+	vd.GET("/videos", video.SearchVideoById)
+	vd.POST("/video", video.CreateVideo)
+	vd.PUT("/video", video.UpdateVideo)
+	vd.DELETE("/video", video.DeleteVideo)
 
 	cg := router.Group("cg")
-	cg.GET("/category", controllers.SearchCategory)
-	cg.POST("/category", controllers.CreateCategory)
+	cg.GET("/category", category.SearchCategory)
+	cg.POST("/category", category.CreateCategory)
 }

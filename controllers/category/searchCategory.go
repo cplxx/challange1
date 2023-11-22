@@ -1,4 +1,4 @@
-package controllers
+package category
 
 import (
 	"net/http"
@@ -9,9 +9,8 @@ import (
 )
 
 func SearchCategory(ctx *gin.Context) {
-	var category []models.Category
 
-	result := inits.DB.Find(category)
+	result := inits.DB.Find(models.Category{})
 	if result == nil {
 		ctx.JSON(http.StatusInternalServerError, gin.H{
 			"error": result.Error,
@@ -19,6 +18,6 @@ func SearchCategory(ctx *gin.Context) {
 		return
 	}
 	ctx.JSON(http.StatusOK, gin.H{
-		"category": category,
+		"category": result,
 	})
 }

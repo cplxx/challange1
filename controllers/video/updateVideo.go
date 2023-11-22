@@ -1,4 +1,4 @@
-package controllers
+package video
 
 import (
 	"github.com/cplxx/AluraChallenge/inits"
