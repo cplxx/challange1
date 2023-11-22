@@ -15,4 +15,5 @@ func initializeRouter(router *gin.Engine) {
 
 	cg := router.Group("cg")
 	cg.GET("/category", controllers.SearchCategory)
+	cg.POST("/category", controllers.CreateCategory)
 }

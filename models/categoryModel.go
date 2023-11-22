@@ -1,7 +1,9 @@
 package models
 
+import "gorm.io/gorm"
+
 type Category struct {
-	ID    uint   `gorm:"primaryKey"`
-	title string `gorm:"title"`
-	color string `gorm:"color"`
+	gorm.Model
+	Title string `gorm:"title"`
+	Color string `gorm:"color"`
 }
