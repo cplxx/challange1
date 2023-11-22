@@ -11,4 +11,5 @@ func initializeRouter(router *gin.Engine) {
 	v1.GET("/videos", controllers.SearchVideoById)
 	v1.POST("/video", controllers.CreateVideo)
 	v1.PUT("/video", controllers.UpdateVideo)
+	v1.DELETE("/video", controllers.DeleteVideo)
 }
