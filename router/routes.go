@@ -6,10 +6,13 @@ import (
 )
 
 func initializeRouter(router *gin.Engine) {
-	v1 := router.Group("/v1")
-	v1.GET("/video", controllers.SearchVideo)
-	v1.GET("/videos", controllers.SearchVideoById)
-	v1.POST("/video", controllers.CreateVideo)
-	v1.PUT("/video", controllers.UpdateVideo)
-	v1.DELETE("/video", controllers.DeleteVideo)
+	vd := router.Group("/vd")
+	vd.GET("/video", controllers.SearchVideo)
+	vd.GET("/videos", controllers.SearchVideoById)
+	vd.POST("/video", controllers.CreateVideo)
+	vd.PUT("/video", controllers.UpdateVideo)
+	vd.DELETE("/video", controllers.DeleteVideo)
+
+	cg := router.Group("cg")
+	cg.GET("/category", controllers.SearchCategory)
 }

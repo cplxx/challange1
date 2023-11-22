@@ -11,6 +11,7 @@ func main() {
 	inits.LoadEnv()
 	inits.DBInit()
 	inits.DB.AutoMigrate(&models.Video{})
+	inits.DB.AutoMigrate(&models.Category{})
 	r := gin.Default()
 
 	router.Initialize()
