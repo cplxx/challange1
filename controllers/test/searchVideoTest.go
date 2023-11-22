@@ -2,6 +2,6 @@ package test
 
 import "testing"
 
-func TestSearches(t *testing.T) {
+func TestSearchesVideo(t *testing.T) {
 
 }

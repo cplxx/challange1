@@ -9,8 +9,9 @@ import (
 )
 
 func DeleteVideo(ctx *gin.Context) {
-	id := ctx.Param("id")
 
-	inits.DB.Delete(&models.Video{}, id)
-	ctx.JSON(http.StatusOK, gin.H{"sucess": "video deletado com sucesso"})
+	inits.DB.Delete(&models.Video{}, ctx.Query("id"))
+
+	ctx.JSON(http.StatusOK, gin.H{
+		"data": "video deletado com sucesso"})
 }
