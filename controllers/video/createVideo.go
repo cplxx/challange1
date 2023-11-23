@@ -1,7 +1,6 @@
 package video
 
 import (
-	"fmt"
 	"net/http"
 
 	"github.com/cplxx/AluraChallenge/inits"
@@ -22,8 +21,6 @@ func CreateVideo(ctx *gin.Context) {
 		Description: input.Description,
 		Url:         input.Url,
 	}
-
-	fmt.Println(video)
 
 	result := inits.DB.Create(&video)
 	if result.Error != nil {

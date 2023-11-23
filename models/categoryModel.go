@@ -7,3 +7,8 @@ type Category struct {
 	Title string `gorm:"title"`
 	Color string `gorm:"color"`
 }
+
+var CategoryModel struct {
+	Title string
+	Color string
+}

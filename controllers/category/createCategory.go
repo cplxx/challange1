@@ -9,17 +9,24 @@ import (
 )
 
 func CreateCategory(ctx *gin.Context) {
+	var input models.Category
 
-	if err := ctx.BindJSON(models.Category{}); err != nil {
-		ctx.JSON(http.StatusBadRequest, gin.H{"Error": err.Error()})
+	if err := ctx.BindJSON(&input); err != nil {
+		ctx.JSON(http.StatusBadRequest, gin.H{
+			"error": err.Error()})
 		return
 	}
 
-	result := inits.DB.Create(models.Category{})
+	category := models.Category{
+		Title: input.Title,
+		Color: input.Color,
+	}
+
+	result := inits.DB.Create(&category)
 	if result.Error != nil {
-		ctx.JSON(http.StatusInternalServerError, gin.H{"Error": result.Error.Error()})
+		ctx.JSON(http.StatusInternalServerError, gin.H{"error": result.Error.Error()})
 		return
 	}
 
-	ctx.JSON(http.StatusOK, gin.H{"message": "category created successfully"})
+	ctx.JSON(http.StatusOK, gin.H{"message": "categoria criada com sucesso"})
 }

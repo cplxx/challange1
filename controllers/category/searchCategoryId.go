@@ -17,9 +17,8 @@ func SearchCategoryById(ctx *gin.Context) {
 
 	category := models.Category{}
 	if err := inits.DB.First(&category, id).Error; err != nil {
-		ctx.JSON(http.StatusNotFound, gin.H{"error": "video não encontrado"})
+		ctx.JSON(http.StatusNotFound, gin.H{"error": "categoria não encotrada"})
 		return
 	}
-
 	ctx.JSON(http.StatusOK, gin.H{"category": category})
 }

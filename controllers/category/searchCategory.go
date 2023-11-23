@@ -9,15 +9,12 @@ import (
 )
 
 func SearchCategory(ctx *gin.Context) {
+	var category []models.Category
 
-	result := inits.DB.Find(models.Category{})
+	result := inits.DB.Find(&category)
 	if result == nil {
-		ctx.JSON(http.StatusInternalServerError, gin.H{
-			"error": result.Error,
-		})
+		ctx.JSON(http.StatusInternalServerError, gin.H{"error": result.Error})
 		return
 	}
-	ctx.JSON(http.StatusOK, gin.H{
-		"category": result,
-	})
+	ctx.JSON(http.StatusOK, gin.H{"data": category})
 }
